@@ -1,12 +1,248 @@
 ---
-title: "Assignment 1"
-date: "2022-10-01"
+title: "Sunforest: Assignment 1"
+date: "2022-10-21"
+editor: visual
 ---
 
-This is a template example qmd output page. You may see an example R code below.
+In this assignment, we analyse the dataset selected from Global Dietary Database website, which includes B12 intake of former Soviet union countries, each row representing the B12 intake estimation for each 5 year between 1990 and 2020 and for each country, based on the variables of gender, residence (urban or rural), age group and education level.
+
+## \| IMPORTING THE DATASET AND THE PACKAGES
 
 ```{r}
-set.seed(1)
-vec1 <- sample(LETTERS,5)
-paste0(vec1,collapse="")
+gdd <- read.csv("/Users/nidadonmez/Downloads/gdd_b12_levels.csv") 
+library(dplyr)
+library(ggplot2)
 ```
+
+## \| PREPROCESSING
+
+```{r}
+
+
+#1.1) Gender
+gdd_g <- gdd %>%
+mutate(gender = case_when(female == 1 ~ 'female', female == 0 ~ 'male', female == 999 ~ 'all genders'))
+  gdd_g %>%
+    head(10)
+
+#1.2) Urban / Rural
+gdd_r <- gdd_g %>%
+mutate(residence = case_when(urban == 1 ~ 'urban', urban == 0 ~ 'rural', urban == 999 ~ 'all residences'))
+gdd_r %>%
+  head(10)
+
+#1.3) Education Level
+gdd_f <- gdd_r %>%
+  mutate(edu_level = case_when(edu == 1 ~ 'low', edu == 2 ~ 'medium', edu == 3 ~ 'high',edu == 999 ~ 'all levels'))
+gdd_f %>%
+  head(10)
+```
+
+## \| DATA ANALYSIS
+
+### \| Mean and Median Change With Time for Each Country for General Population:
+
+#### \| Prepare The Data:
+
+In order to compare the general country B12 intakes in between, filter all the variables as 999 (representing general population) and take the mean and median for each country and summarise:
+
+```{r}
+gdd_1 <- gdd %>%
+  filter(age== 999, female == 999, urban == 999, edu == 999) %>%
+  group_by(iso3, year) %>%
+  summarise(mean_values = (lowerci_95+upperci_95)/2, median) %>%
+arrange(desc(median))
+gdd_1
+```
+
+#### \|Median of Countries Across Years:
+
+```{r}
+gdd_2 <- ggplot(gdd_1, aes(x = year, y = median, color = iso3)) + geom_line()
+gdd_2
+```
+
+#### \|Result for Country Medians Across Years:
+
+None of the countries show an extreme change in median B12 intake throughout the years, TJK as the most changing one. As per the general population intakes of countries, BGR and partly TJK are the outlier values in terms of median with lower intake. Est has the outlier value as higher intake.It is difficult to talk about a trend per country.
+
+#### \|Mean of Countries Across Years:
+
+```{r}
+gdd_3 <- ggplot(gdd_1, aes(x = year, y = mean_values, color = iso3)) + geom_line()
+gdd_3
+```
+
+#### \|Result for Country Means Across Years:
+
+For the countries around average mean value, we can see an extreme upward trend from year 2000 to 2010 and then a decline towards 2015, and remain constant between 2015 and 2020.
+
+In terms of mean, there are outliers below 4 mg intake,but hard to recognise as the colors are similar, and consistently with median graph, EST is the upper outlier with higher intake.
+
+### \|Comparison of Average B12 Intake of General Population For All The Years In Terms of Country
+
+To show the general population mean B12 intake with a bar chart for each country, first we summarise the table with the average of all the years rather than for each year:
+
+```{r}
+gdd_4 <- gdd %>%
+  filter(age== 999, female == 999, urban == 999, edu == 999) %>%
+  group_by(iso3) %>%
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_4
+#bar chart to compare country average intake:
+gdd_5 <- ggplot(gdd_4, aes(x = iso3, y = mean_values, color = iso3)) + geom_col() 
+gdd_5
+
+```
+
+#### \|Result:
+
+We can see three BGR, ROU and POL have lower average intake and EST as higher intake more clearly in this chart.
+
+### \| Try To Understand if Any Specific Age Group Affects Lower Intake Countries' Values:
+
+#### \|For Lower Intake Countries:
+
+We can analyse the countries with outlier values in more detail. To see the effect of age groups for B12 intake, select countries BGR, ROU and POL (lower intake), select for all lifestyles, all education levels, all genders but only different age groups, and visualise the table:
+
+```{r}
+gdd_6 <- gdd %>%
+  filter(female == 999, urban == 999, edu == 999, age < 999, iso3 == "BGR" | iso3 == "ROU"| iso3 == "POL") %>%
+  group_by(age) %>%
+  #again to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_6
+#visualise to see if there is any major change by different age group:
+gdd_7 <- ggplot(gdd_6, aes(x = age, y = mean_values, fill = age)) + geom_col() + geom_text(aes(label = round(mean_values, 1))) 
+gdd_7
+```
+
+#### \|Result for Lower Intake Countries:
+
+We can see that B12 intake for children up tp 10 year is very low (ranging from 1.5 mg to 2.5mg), however for age groups taking higher B12, the average intake is roughly above 3. It seems there is no extreme low intake for some age groups affecting the average of these countries.
+
+#### \| All Countries:
+
+To see if for lower intake countries the age group intake is similar to the other countries, we can prepare the same chart including all countries and prepare another bar chart:
+
+```{r}
+gdd_8 <- gdd %>%
+  filter(female == 999, urban == 999, edu == 999, age < 999) %>%
+  group_by(age) %>%
+  #again to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_8
+
+gdd_9 <- ggplot(gdd_8, aes(x = age, y = mean_values, fill=age)) + geom_col() + geom_text(aes(label = round(mean_values, 1)))
+gdd_9
+```
+
+#### \|Result for All Countries and Comparison:
+
+It seems the children's intake trend compared to adolescent and adult intake is in line for lower-average countries when compared to all countries.We can say that the lower intake of a specific group affecting the average is not the case here.
+
+### \|Comparison of Lower-Intake / Higher-Intake / All Countries In Terms of Gender and Residence:
+
+#### \|All Countries:
+
+```{r}
+gdd_10 <- gdd_f %>%
+  filter(age== 999, gender == "female" | gender == "male", residence == "urban" | residence == "rural", edu == 999) %>%
+  group_by(gender, residence) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_10
+
+gdd_11 <- ggplot(gdd_10, aes(x=residence, y=mean_values, fill=gender)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5)) 
+gdd_11
+```
+
+#### \|Lower Intake Countries (BGR, ROU, POL):
+
+```{r}
+gdd_12 <- gdd_f %>%
+  filter(age== 999, gender == "female" | gender == "male", residence == "urban" | residence == "rural", edu == 999, iso3 == "BGR" | iso3 == "ROU"| iso3 == "POL") %>%
+  group_by(gender, residence) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_12
+
+gdd_13 <- ggplot(gdd_12, aes(x=residence, y=mean_values, fill=gender)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5)) 
+gdd_13
+```
+
+#### \|Higher Intake Country (EST):
+
+```{r}
+gdd_14 <- gdd_f %>%
+  filter(age== 999, gender == "female" | gender == "male", residence == "urban" | residence == "rural", edu == 999, iso3 == "EST") %>%
+   group_by(gender, residence) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_14
+
+
+gdd_15 <- ggplot(gdd_14, aes(x=residence, y=mean_values, fill=gender)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5)) 
+gdd_15
+```
+
+#### \|Result:
+
+The gap between the females and males is lowest for EST, high intake country, in relative to the other groups, and relatively the highest for lower intake countries, which means female intake is significantly lower than males in low-intake countries. The gap between rural an urban areas is similar in three groups, urban areas having higher intake.
+
+### \|Comparison of Lower-Intake / Higher-Intake / All Countries In Terms of Education Leven and Gender:
+
+#### \|All Countries:
+
+```{r}
+gdd_16 <- gdd_f %>%
+  filter(age== 999, urban == 999, edu_level == "low" | edu_level == "medium" | edu_level == "high",  gender == "male" | gender == "female") %>%
+  group_by(edu_level, gender) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_16
+
+gdd_17 <- ggplot(gdd_16, aes(x=gender, y=mean_values, fill=edu_level)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5))
+gdd_17
+```
+
+#### \|Lower Intake Countries:
+
+```{r}
+gdd_18 <- gdd_f %>%
+  filter(age== 999, urban == 999, edu_level == "low" | edu_level == "medium" | edu_level == "high",  gender == "male" | gender == "female", iso3 == "BGR" | iso3 == "ROU"| iso3 == "POL") %>%
+  group_by(edu_level, gender) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_18
+
+gdd_19 <- ggplot(gdd_18, aes(x=gender, y=mean_values, fill=edu_level)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5))
+gdd_19
+```
+
+#### \|Higher Intake Countries:
+
+```{r}
+gdd_20 <- gdd_f %>%
+  filter(age== 999, urban == 999, edu_level == "low" | edu_level == "medium" | edu_level == "high",  gender == "male" | gender == "female", iso3 == "EST") %>%
+  group_by(edu_level, gender) %>%
+  #to ensure we take the average of seperate years rather than all the years:
+  summarise(mean_values = mean(lowerci_95+upperci_95)/2) %>%
+  arrange(desc(mean_values))
+gdd_20
+
+gdd_21 <- ggplot(gdd_20, aes(x=gender, y=mean_values, fill=edu_level)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5))
+gdd_21
+```
+
+#### \|Result:
+
+No matter the country group, the difference of B12 intake of males vs females does not vary significantly based on the education level.
