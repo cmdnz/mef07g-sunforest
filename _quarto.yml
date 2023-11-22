@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Sunforest Progress Journal"
-  repo-url: https://github.com/pjournal/gh-pages-quarto-template
+  repo-url: https://github.com/pjournal/mef07g-sunforest
   chapters:
     - index.qmd
     - assignment1.qmd
