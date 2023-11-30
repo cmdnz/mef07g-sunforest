@@ -7,11 +7,13 @@ This progress journal covers Sunforest's work during their term at [BDA 503 Fall
 Each section is an assignment or an individual work.
 
 
-Group Members
+### Group Members {-}
 
 * [Zelha Tunc Pekkan](https://pjournal.github.io/mef07-Zelha2024)  
 * [Ozgenur Sensoy](https://pjournal.github.io/mef07-ozgenursensoy)
 * [Nida Donmez](https://pjournal.github.io/mef07-nida-91)
+* [Cem Deniz Sayıner](https://pjournal.github.io/mef07-cmdnz)
+
 
 # Group Project Details
 
