@@ -9,9 +9,9 @@ Each section is an assignment or an individual work.
 
 Group Members
 
-+ [Zelha Tunc Pekkan](https://pjournal.github.io/mef07-Zelha2024)  
-+ [Ozgenur Sensoy](https://pjournal.github.io/mef07-ozgenursensoy)
-+ [Nida Donmez](https://pjournal.github.io/mef07-nida-91)
+* [Zelha Tunc Pekkan](https://pjournal.github.io/mef07-Zelha2024)  
+* [Ozgenur Sensoy](https://pjournal.github.io/mef07-ozgenursensoy)
+* [Nida Donmez](https://pjournal.github.io/mef07-nida-91)
 
 # Group Project Details
 
