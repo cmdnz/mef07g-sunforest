@@ -9,7 +9,7 @@ In this assignment, we analyse the dataset selected from Global Dietary Database
 ## \| IMPORTING THE DATASET AND THE PACKAGES
 
 ```{r}
-gdd <- read.csv("/Users/nidadonmez/Downloads/gdd_b12_levels.csv") 
+gdd <- read.csv("https://raw.githubusercontent.com/berkorbay/datasets/master/gdd/gdd_b12_levels.csv") 
 library(dplyr)
 library(ggplot2)
 ```
