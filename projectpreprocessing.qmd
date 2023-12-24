@@ -1,0 +1,49 @@
+---
+title: "PISA 22 Preprocessing Data "
+date: "2023-12-26"
+editor: visual
+---
+
+```{r}
+
+### Step 1:  import libraries
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+# library(ggridges)
+library(knitr)
+# library(kableExtra)
+# library(DT)
+# library(shiny)
+
+# pisa <- read.csv("qqq.csv")
+
+
+# names(pisa)
+# save as Rdata
+# save(pisa, file = "pisa.RData")
+
+# Step 2:  import data
+
+# load Rdata
+load("pisa.RData")
+# check the data
+#str(pisa)
+length(pisa)
+head(pisa)
+
+
+# drop x column
+pisa <- pisa %>% select(-X)
+# check summary
+#summary(pisa)
+
+#sapply(pisa, function(x) sum(is.na(x)))
+# check the data
+
+#str(pisa)
+#length(pisa)
+
+
+```
