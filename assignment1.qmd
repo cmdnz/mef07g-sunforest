@@ -239,7 +239,7 @@ gdd_20 <- gdd_f %>%
   arrange(desc(mean_values))
 gdd_20
 
-gdd_21 <- ggplot(gdd_20, aes(x=gender, y=mean_values, fill=edu_level)) + geom_bar(stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5))
+gdd_21 <- ggplot(gdd_20, aes(x=gender, y=mean_values, fill=edu_level)) + geom_bar( stat="identity") + expand_limits(x=0) + expand_limits(y=0) + geom_text(aes(label = round(mean_values, 1)), position = position_stack(vjust = 0.5))
 gdd_21
 ```
 
