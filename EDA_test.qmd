@@ -2,6 +2,8 @@
 title: "PISA 2022 Exploratory Data Analysis"
 date: "2023-12-28"
 editor: visual
+code-fold: true
+code-tools: true
 ---
 
 ## Key Takeaways
@@ -38,7 +40,7 @@ load("pisa.RData")
 # check the data
 #str(pisa)
 length(pisa)
-head(pisa)
+# head(pisa,10)
 
 
 # drop x column
@@ -55,7 +57,7 @@ pisa <- pisa %>% select(-X)
 
 ```
 
-## Mean Of Math, Read and Science Scores By OECD Countries:
+## Mean Of Math, Reading and Science Scores By OECD Countries:
 
 Sums and means of PV scores for each subject and each row are summarised as additional columns:
 ```{r}
@@ -108,7 +110,7 @@ ggplot(pisa_mean, aes(x = reorder(CNT, mean_math), y = mean_math)) +
 ```
 
 
-..and below is the representation of mean science and read scores by OECD countries:
+..and below is the representation of mean science and reading scores by OECD countries:
 
 ```{r}
 # sort the data by sci score
@@ -142,7 +144,7 @@ ggplot(pisa_mean, aes(x = reorder(CNT, mean_read), y = mean_read)) +
 - While Finland education method is promoted as the best, the scores of this country is mediocre among the OECD countries.
 - Turkey is among the last 5 out of OECD countries in all three subjects, together with Greece, Colombia and Mexico.
 
-## Mean Of Math, Read and Science Scores by Lack Of Teaching Stuff:
+## Mean Of Math, Reading and Science Scores by Lack Of Teaching Stuff:
 
 
 ```{r}
@@ -168,7 +170,7 @@ When there is no lack of teaching staff, the mean scores in all three subjects a
 
 ## Mean Math Score By Professional Development Provided To Teaching Staff:
 
-```{r, output=FALSE, warning=FALSE}
+```{r}
 #  SC184*** mean math score, mean read score and mean sci score "Does your school offer professional development to
 # mathematics teachers in any of the following?
 #pisa$SC184Q01JA # 1Yes 2No

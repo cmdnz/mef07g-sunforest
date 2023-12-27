@@ -2,6 +2,8 @@
 title: "Sunforest: Assignment 1"
 date: "2022-11-21"
 editor: visual
+code-fold: true
+code-tools: true
 ---
 
 In this assignment, we analyse the dataset selected from Global Dietary Database website, which includes B12 intake of former Soviet union countries, each row representing the B12 intake estimation for each 5 year between 1990 and 2020 and for each country, based on the variables of gender, residence (urban or rural), age group and education level.

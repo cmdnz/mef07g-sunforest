@@ -196,8 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link active" data-scroll-target="#key-takeaways"><span class="header-section-number">3.1</span> Key Takeaways</a></li>
   <li><a href="#package-installation-and-data-summary" id="toc-package-installation-and-data-summary" class="nav-link" data-scroll-target="#package-installation-and-data-summary"><span class="header-section-number">3.2</span> Package Installation and Data Summary:</a></li>
-  <li><a href="#mean-of-math-read-and-science-scores-by-oecd-countries" id="toc-mean-of-math-read-and-science-scores-by-oecd-countries" class="nav-link" data-scroll-target="#mean-of-math-read-and-science-scores-by-oecd-countries"><span class="header-section-number">3.3</span> Mean Of Math, Read and Science Scores By OECD Countries:</a></li>
-  <li><a href="#mean-of-math-read-and-science-scores-by-lack-of-teaching-stuff" id="toc-mean-of-math-read-and-science-scores-by-lack-of-teaching-stuff" class="nav-link" data-scroll-target="#mean-of-math-read-and-science-scores-by-lack-of-teaching-stuff"><span class="header-section-number">3.4</span> Mean Of Math, Read and Science Scores by Lack Of Teaching Stuff:</a></li>
+  <li><a href="#mean-of-math-reading-and-science-scores-by-oecd-countries" id="toc-mean-of-math-reading-and-science-scores-by-oecd-countries" class="nav-link" data-scroll-target="#mean-of-math-reading-and-science-scores-by-oecd-countries"><span class="header-section-number">3.3</span> Mean Of Math, Reading and Science Scores By OECD Countries:</a></li>
+  <li><a href="#mean-of-math-reading-and-science-scores-by-lack-of-teaching-stuff" id="toc-mean-of-math-reading-and-science-scores-by-lack-of-teaching-stuff" class="nav-link" data-scroll-target="#mean-of-math-reading-and-science-scores-by-lack-of-teaching-stuff"><span class="header-section-number">3.4</span> Mean Of Math, Reading and Science Scores by Lack Of Teaching Stuff:</a></li>
   <li><a href="#mean-math-score-by-professional-development-provided-to-teaching-staff" id="toc-mean-math-score-by-professional-development-provided-to-teaching-staff" class="nav-link" data-scroll-target="#mean-math-score-by-professional-development-provided-to-teaching-staff"><span class="header-section-number">3.5</span> Mean Math Score By Professional Development Provided To Teaching Staff:</a></li>
   <li><a href="#mean-math-score-of-oecd-countries-by-public-or-private-school" id="toc-mean-math-score-of-oecd-countries-by-public-or-private-school" class="nav-link" data-scroll-target="#mean-math-score-of-oecd-countries-by-public-or-private-school"><span class="header-section-number">3.6</span> Mean Math Score of OECD Countries by Public or Private School:</a></li>
   </ul>
@@ -208,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PISA 2022 Exploratory Data Analysis</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PISA 2022 Exploratory Data Analysis</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -243,8 +243,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="package-installation-and-data-summary" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="package-installation-and-data-summary"><span class="header-section-number">3.2</span> Package Installation and Data Summary:</h2>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Step 1:  import libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.3     ✔ readr     2.1.4
@@ -257,9 +260,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'scales'
@@ -272,6 +278,8 @@ The following object is masked from 'package:readr':
 
     col_factor</code></pre>
 </div>
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggridges)</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
@@ -287,182 +295,117 @@ The following object is masked from 'package:readr':
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#str(pisa)</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(pisa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pisa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  X CNT CNTRYID CNTSCHID CNTSTUID OECD_x PV1MATH PV2MATH PV3MATH PV4MATH
-1 0 ALB       8   800282   800001      0 179.583 201.334 222.248 194.943
-2 1 ALB       8   800115   800002      0 308.247 304.444 316.129 234.353
-3 2 ALB       8   800242   800003      0 267.514 343.743 327.157 290.771
-4 3 ALB       8   800245   800005      0 272.649 300.642 226.409 316.835
-5 4 ALB       8   800285   800006      0 435.473 491.174 478.365 454.352
-6 5 ALB       8   800172   800007      0 534.112 547.822 530.675 482.761
-  PV5MATH PV6MATH PV7MATH PV8MATH PV9MATH PV10MATH PV1READ PV2READ PV3READ
-1 222.755 213.100 221.021 293.710 226.912  254.745 247.571 322.919 220.679
-2 323.448 303.435 333.178 288.888 343.157  329.659 258.472 305.879 328.252
-3 316.227 309.451 323.337 307.508 356.244  295.401 284.670 386.451 329.009
-4 288.861 321.268 312.063 334.765 283.916  329.915 321.547 256.187 235.363
-5 491.031 504.919 468.401 463.913 470.627  499.257 464.366 455.299 496.037
-6 535.365 491.129 519.928 526.671 535.866  508.503 451.263 413.127 410.120
-  PV4READ PV5READ PV6READ PV7READ PV8READ PV9READ PV10READ PV1SCIE PV2SCIE
-1 220.125 259.780 242.733 253.962 299.988 164.397  265.872 335.468 295.861
-2 235.438 292.872 361.678 294.129 213.902 267.050  331.327 315.021 327.293
-3 318.836 269.201 333.165 314.457 290.453 269.663  321.880 358.675 344.639
-4 362.717 310.844 259.632 352.668 334.544 252.265  321.986 214.823 192.366
-5 510.626 494.031 430.135 486.110 478.975 471.980  579.130 434.997 565.771
-6 490.066 483.239 454.755 403.778 433.762 376.162  389.394 479.075 481.661
-  PV3SCIE PV4SCIE PV5SCIE PV6SCIE PV7SCIE PV8SCIE PV9SCIE PV10SCIE OECD_y
-1 312.648 263.027 263.343 308.478 309.256 273.810 297.433  353.279      0
-2 280.396 270.154 348.569 320.866 275.114 319.327 258.910  319.664      0
-3 328.467 328.270 309.492 333.690 339.446 290.172 291.706  311.935      0
-4 183.866 163.129 280.386 229.360 197.635 199.556 246.714  193.667      0
-5 417.831 508.182 472.252 425.544 489.097 489.592 388.947  475.359      0
-6 518.735 518.327 503.914 527.101 482.811 493.852 507.761  502.701      0
-  SC013Q01TA SC182Q01WA01 SC182Q01WA02 SC182Q06WA01 SC182Q06WA02 SC182Q07JA01
-1          1            4           NA            4           NA            3
-2          1            3            0            3            0            3
-3          1            3            0            3            0            0
-4          1            2           NA            2           NA           NA
-5         NA            5           NA            5           NA            5
-6          2            7           NA            7           NA            7
-  SC182Q07JA02 SC182Q08JA01 SC182Q08JA02 SC182Q09JA01 SC182Q09JA02 SC182Q10JA01
-1           NA            0           NA            1           NA            0
-2            0            3            0            3            0            0
-3            0            3            0            0            0            0
-4           NA           NA           NA           NA           NA           NA
-5           NA            5           NA            5           NA            5
-6           NA            7           NA            7           NA            0
-  SC182Q10JA02 SC201Q01JA SC201Q03JA SC201Q04JA SC201Q05JA SC201Q06JA
-1           NA          3          4          3          3          3
-2            0          3          3          3          2          4
-3            0          5          3          2          3          5
-4           NA          2          3          3          4          5
-5           NA          5          4          5          5          5
-6           NA          1          5          2          2          3
-  SC201Q07JA SC201Q11JA SC037Q01TA SC037Q02TA SC037Q03TA SC037Q04TA SC037Q05NA
-1          5          3          1          1          1          1          2
-2          3          2          1          1          2          1          1
-3          3          3          1          1          1          1          2
-4          2          2          1          1          1          1          1
-5          5          2          1          1          1          1          1
-6          3          2          1          1          1          1          1
-  SC037Q06NA SC037Q07TA SC037Q08TA SC037Q09TA SC037Q11JA SC025Q01NA SC025Q02NA
-1          2          2          1          2          2         87         95
-2          1          2          2          3          1         57         33
-3          1          2          2          1          2         12          6
-4          1          2          2          1          1         88        100
-5          2          2          2          1          1         99         13
-6          1          2          2          2          2         93         88
-  SC184Q01JA SC184Q02JA SC184Q03JA SC184Q04JA SC184Q05JA SC184Q06JA SC184Q07JA
-1          1          1          1          1          1          1          1
-2          1          1          1          2          1          1          1
-3          1          1          1          1          1          1          1
-4          2          1          2          1          1          2          1
-5          1          1          1          1          1          1          2
-6          2          1          2          1          1          2          1
-  SC017Q01NA SC017Q02NA SC017Q03NA SC017Q04NA SC017Q05NA SC017Q06NA SC017Q07NA
-1          1          2          1          2          1          2          2
-2          1          1          1          1          4          4          4
-3          1          1          1          3         NA          3          1
-4          1          1          1          1          3          1          3
-5          2          1          1          1          2          2          2
-6          1          1          1          1          1          1          1
-  SC017Q08NA SC017Q09JA SC017Q10JA SC176Q01JA
-1          2          2          3          4
-2          4          4          4          4
-3          1          1          2          2
-4          3          4          4          1
-5          2          3          3          5
-6          1          1          1          1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop x column</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pisa <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>X)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check summary</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(pisa)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#sapply(pisa, function(x) sum(is.na(x)))</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#str(pisa)</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#length(pisa)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head(pisa,10)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># drop x column</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>pisa <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>X)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># check summary</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(pisa)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#sapply(pisa, function(x) sum(is.na(x)))</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#str(pisa)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#length(pisa)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="mean-of-math-read-and-science-scores-by-oecd-countries" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="mean-of-math-read-and-science-scores-by-oecd-countries"><span class="header-section-number">3.3</span> Mean Of Math, Read and Science Scores By OECD Countries:</h2>
+<section id="mean-of-math-reading-and-science-scores-by-oecd-countries" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="mean-of-math-reading-and-science-scores-by-oecd-countries"><span class="header-section-number">3.3</span> Mean Of Math, Reading and Science Scores By OECD Countries:</h2>
 <p>Sums and means of PV scores for each subject and each row are summarised as additional columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3:  EDA</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the PV1MATH+PV2MATH+PV3MATH+PV4MATH+PV5MATH+PV6MATH+PV7MATH+PV8MATH+PV9MATH+PV10MATH and save it as a new column</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names of the math scores avg</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[5:14]</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMMATH <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_math <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate mean mat</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># get READ scores columns</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[15:24]</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMREAD <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_read <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># get SCI scores columns</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[25:34]</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMSCI <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_sci <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3:  EDA</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the PV1MATH+PV2MATH+PV3MATH+PV4MATH+PV5MATH+PV6MATH+PV7MATH+PV8MATH+PV9MATH+PV10MATH and save it as a new column</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names of the math scores avg</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[5:14]</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMMATH <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_math <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate mean mat</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># get READ scores columns</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[15:24]</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMREAD <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_read <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># get SCI scores columns</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[25:34]</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMSCI <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_sci <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Mean column is grouped by OECD countries for each subject:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caluculate the mean of the math, read and sci scores by OECD country</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OECD_x <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(CNT) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caluculate the mean of the math, read and sci scores by OECD country</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OECD_x <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(CNT) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Below is mean math score by OECD country:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by mean_math</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_math))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_math</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_math), <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by OECD Country"</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by mean_math</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_math))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_math</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_math), <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by OECD Country"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EDA_test_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>..and below is the representation of mean science and read scores by OECD countries:</p>
+<p>..and below is the representation of mean science and reading scores by OECD countries:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by sci score</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_sci))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_sci</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_sci), <span class="at">y =</span> mean_sci)) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Science Score by OECD Country"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Science Score"</span>) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by sci score</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_sci))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_sci</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_sci), <span class="at">y =</span> mean_sci)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Science Score by OECD Country"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EDA_test_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by read score</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_read))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_read</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_read), <span class="at">y =</span> mean_read)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Reading Score by OECD Country"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Reading Score"</span>) <span class="sc">+</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by read score</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_read))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_read</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_read), <span class="at">y =</span> mean_read)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Reading Score by OECD Country"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EDA_test_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
 </div>
@@ -473,25 +416,28 @@ The following object is masked from 'package:readr':
 <li>Turkey is among the last 5 out of OECD countries in all three subjects, together with Greece, Colombia and Mexico.</li>
 </ul>
 </section>
-<section id="mean-of-math-read-and-science-scores-by-lack-of-teaching-stuff" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="mean-of-math-read-and-science-scores-by-lack-of-teaching-stuff"><span class="header-section-number">3.4</span> Mean Of Math, Read and Science Scores by Lack Of Teaching Stuff:</h2>
+<section id="mean-of-math-reading-and-science-scores-by-lack-of-teaching-stuff" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="mean-of-math-reading-and-science-scores-by-lack-of-teaching-stuff"><span class="header-section-number">3.4</span> Mean Of Math, Reading and Science Scores by Lack Of Teaching Stuff:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SC017Q01NA Instruction hindered by: A lack of teaching staff #Not at all # Very little # To some extent # A lot</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC017Q01NA</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC017Q01NA calculate mean math score , mean read score and mean sci score</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC017Q01NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a> pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC017Q01NA))</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"subject"</span>, <span class="at">value =</span> <span class="st">"score"</span>, mean_math, mean_read, mean_sci) <span class="sc">%&gt;%</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SC017Q01NA, <span class="at">y =</span> score, <span class="at">fill =</span> subject)) <span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math, Reading and Science Score by Lack of Teaching Staff"</span>, <span class="at">x =</span> <span class="st">"Lack of Teaching Staff"</span>,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Score"</span>) <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> subject) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span>  </span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SC017Q01NA Instruction hindered by: A lack of teaching staff #Not at all # Very little # To some extent # A lot</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC017Q01NA</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC017Q01NA calculate mean math score , mean read score and mean sci score</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC017Q01NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a> pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC017Q01NA))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"subject"</span>, <span class="at">value =</span> <span class="st">"score"</span>, mean_math, mean_read, mean_sci) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SC017Q01NA, <span class="at">y =</span> score, <span class="at">fill =</span> subject)) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math, Reading and Science Score by Lack of Teaching Staff"</span>, <span class="at">x =</span> <span class="st">"Lack of Teaching Staff"</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Score"</span>) <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> subject) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span>  </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EDA_test_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -501,50 +447,62 @@ The following object is masked from 'package:readr':
 <section id="mean-math-score-by-professional-development-provided-to-teaching-staff" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="mean-math-score-by-professional-development-provided-to-teaching-staff"><span class="header-section-number">3.5</span> Mean Math Score By Professional Development Provided To Teaching Staff:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  SC184*** mean math score, mean read score and mean sci score "Does your school offer professional development to</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mathematics teachers in any of the following?</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC184Q01JA # 1Yes 2No</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set 1 as yes and 2 as no</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC184Q01JA =</span> <span class="fu">ifelse</span>(SC184Q01JA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drp the NA</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC184Q01JA))</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>professional_development_to_mathematics_teachers <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC184Q01JA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(professional_development_to_mathematics_teachers, <span class="fu">aes</span>(<span class="at">x =</span> SC184Q01JA, <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Professional Development to Mathematics Teachers"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Professional Development to Mathematics Teachers"</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC184Q01JA$SC184Q01JA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  SC184*** mean math score, mean read score and mean sci score "Does your school offer professional development to</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mathematics teachers in any of the following?</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC184Q01JA # 1Yes 2No</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set 1 as yes and 2 as no</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC184Q01JA =</span> <span class="fu">ifelse</span>(SC184Q01JA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drp the NA</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC184Q01JA))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>professional_development_to_mathematics_teachers <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC184Q01JA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(professional_development_to_mathematics_teachers, <span class="fu">aes</span>(<span class="at">x =</span> SC184Q01JA, <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Professional Development to Mathematics Teachers"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Professional Development to Mathematics Teachers"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="EDA_test_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC184Q01JA$SC184Q01JA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The score does not seem to be changing much based on professional development or not.</p>
 <p>Now let’s have a closer look on how the trend changes based on the professional programme attendance of teaching staff in the last three month.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  During the last three months, what percentage of teaching</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># staff in your school has attended a programme of</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># professional development?</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># SC025Q01NA A Staff who teach mathematics at your</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># school</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC025Q02NA</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0-25 26-50 51-75 76-100</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC025Q02NA =</span> <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">25</span>, <span class="dv">25</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">50</span>, <span class="dv">50</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">100</span>))))</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC025Q02NA$SC025Q02NA</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC025Q02NA))</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC025Q02NA calculate mean math score</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC025Q02NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_maths =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC025Q02NA, <span class="fu">aes</span>(<span class="at">x =</span> SC025Q02NA, <span class="at">y =</span> mean_maths, <span class="at">color =</span> <span class="st">"#E6E6FA"</span>)) <span class="sc">+</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  During the last three months, what percentage of teaching</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># staff in your school has attended a programme of</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># professional development?</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># SC025Q01NA A Staff who teach mathematics at your</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># school</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC025Q02NA</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0-25 26-50 51-75 76-100</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC025Q02NA =</span> <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">25</span>, <span class="dv">25</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">50</span>, <span class="dv">50</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">100</span>))))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC025Q02NA$SC025Q02NA</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC025Q02NA))</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC025Q02NA calculate mean math score</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC025Q02NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_maths =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC025Q02NA, <span class="fu">aes</span>(<span class="at">x =</span> SC025Q02NA, <span class="at">y =</span> mean_maths, <span class="at">color =</span> <span class="st">"#E6E6FA"</span>)) <span class="sc">+</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="EDA_test_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -554,10 +512,13 @@ The following object is masked from 'package:readr':
 <section id="mean-math-score-of-oecd-countries-by-public-or-private-school" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="mean-math-score-of-oecd-countries-by-public-or-private-school"><span class="header-section-number">3.6</span> Mean Math Score of OECD Countries by Public or Private School:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SC013 Is your school a public or a private school?</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC013Q01TA</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC013Q01TA calculate mean math score # 1Public 2Private</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC013Q01TA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SC013 Is your school a public or a private school?</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC013Q01TA</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC013Q01TA calculate mean math score # 1Public 2Private</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC013Q01TA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
 dplyr 1.1.0.
@@ -569,19 +530,22 @@ dplyr 1.1.0.
 <pre><code>`summarise()` has grouped output by 'SC013Q01TA'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Public"</span>, <span class="st">"Private"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#group by countries</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  plot  the data</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC013Q01TA, <span class="fu">aes</span>(mean_math)) <span class="sc">+</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"#FFE5B4"</span>) <span class="sc">+</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> SC013Q01TA) <span class="sc">+</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Public or Private School"</span>,</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Public"</span>, <span class="st">"Private"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#group by countries</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  plot  the data</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC013Q01TA, <span class="fu">aes</span>(mean_math)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"#FFE5B4"</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> SC013Q01TA) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Public or Private School"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -590,6 +554,8 @@ dplyr 1.1.0.
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 
@@ -673,6 +639,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -838,7 +855,256 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PISA 2022 Exploratory Data Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "PISA 2022 Exploratory Data Analysis"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-12-28"</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Takeaways</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Top Scorers of OECD Countries:** Two Far Eastern countries, Korea and Japan, and three Eastern Europe countries, Estonia, Poland and Czech Republic, are outstanding in terms of mean scores of all three subject. </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Not The Best As Expected in OECD Countries:** Finland, the country of which the education model is taken as a role model, has a mediocre performance. The most advanced countries like Germany, France and USA have again a mediocre performance. </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Lack of teaching staff:** If schools have 'no' or 'a lot of staff missing teaching mathematics', then their students' performance in mathematics drops. If schools have a moderate number of missing (‘very little’ and ‘to some extent’) students' performance in mathematics is not affected much.</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Professional Development:** Does your school offer professional development to mathematics teachers in any of the following? It seems there is no difference in students’ mathematical performance whether their school provides or does not professional development to the teachers.</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Is your school a public or a private school? Answer to this question:** In general, the school type does not matter much in students’ performance in PISA 2022.</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Specifically in Turkey, we checked whether school type mattered in terms of frequency of high achievers:** interestingly, the number of high achievers coming from X schools are a lot higher than Y type of schools. Outliers for high achieving students are usually from X schools….</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Package Installation and Data Summary:</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="do">### Step 1:  import libraries</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggridges)</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="co"># library(kableExtra)</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="co"># library(DT)</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co"># library(shiny)</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2:  import data</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="co"># load Rdata</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"pisa.RData"</span>)</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a><span class="co">#str(pisa)</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(pisa)</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="co"># head(pisa,10)</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a><span class="co"># drop x column</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>pisa <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>X)</span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a><span class="co"># check summary</span></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(pisa)</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a><span class="co">#sapply(pisa, function(x) sum(is.na(x)))</span></span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a><span class="co"># check the data</span></span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a><span class="co">#str(pisa)</span></span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a><span class="co">#length(pisa)</span></span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean Of Math, Reading and Science Scores By OECD Countries:</span></span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>Sums and means of PV scores for each subject and each row are summarised as additional columns:</span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3:  EDA</span></span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the PV1MATH+PV2MATH+PV3MATH+PV4MATH+PV5MATH+PV6MATH+PV7MATH+PV8MATH+PV9MATH+PV10MATH and save it as a new column</span></span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names of the math scores avg</span></span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[5:14]</span></span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMMATH <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_math <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">5</span><span class="sc">:</span><span class="dv">14</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate mean mat</span></span>
+<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a><span class="co"># get READ scores columns</span></span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[15:24]</span></span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
+<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMREAD <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_read <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">15</span><span class="sc">:</span><span class="dv">24</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="co"># get SCI scores columns</span></span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a><span class="co">#colnames(pisa)[25:34]</span></span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the SCI score and save it as a new column</span></span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>SUMSCI <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>pisa<span class="sc">$</span>mean_sci <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(pisa[, <span class="dv">25</span><span class="sc">:</span><span class="dv">34</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>Mean column is grouped by OECD countries for each subject:</span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a><span class="co"># caluculate the mean of the math, read and sci scores by OECD country</span></span>
+<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OECD_x <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(CNT) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>Below is mean math score by OECD country:</span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by mean_math</span></span>
+<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_math))</span>
+<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_math</span></span>
+<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_math), <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
+<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by OECD Country"</span>,</span>
+<span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a>..and below is the representation of mean science and reading scores by OECD countries:</span>
+<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by sci score</span></span>
+<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_sci))</span>
+<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_sci</span></span>
+<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_sci), <span class="at">y =</span> mean_sci)) <span class="sc">+</span></span>
+<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Science Score by OECD Country"</span>,</span>
+<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Science Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the data by read score</span></span>
+<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a>pisa_mean <span class="ot">&lt;-</span> pisa_mean <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_read))</span>
+<span id="cb22-139"><a href="#cb22-139" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the data by mean_read</span></span>
+<span id="cb22-140"><a href="#cb22-140" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_mean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(CNT, mean_read), <span class="at">y =</span> mean_read)) <span class="sc">+</span></span>
+<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-142"><a href="#cb22-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb22-143"><a href="#cb22-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Reading Score by OECD Country"</span>,</span>
+<span id="cb22-144"><a href="#cb22-144" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb22-145"><a href="#cb22-145" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Reading Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-146"><a href="#cb22-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-147"><a href="#cb22-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-148"><a href="#cb22-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-149"><a href="#cb22-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-150"><a href="#cb22-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-151"><a href="#cb22-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-152"><a href="#cb22-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Korea, Japan, Estonia and Czech Republic are part of top 5 in all of the subjects.</span>
+<span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>While Finland education method is promoted as the best, the scores of this country is mediocre among the OECD countries.</span>
+<span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Turkey is among the last 5 out of OECD countries in all three subjects, together with Greece, Colombia and Mexico.</span>
+<span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean Of Math, Reading and Science Scores by Lack Of Teaching Stuff:</span></span>
+<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a><span class="co"># SC017Q01NA Instruction hindered by: A lack of teaching staff #Not at all # Very little # To some extent # A lot</span></span>
+<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC017Q01NA</span></span>
+<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC017Q01NA calculate mean math score , mean read score and mean sci score</span></span>
+<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC017Q01NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_read =</span> <span class="fu">mean</span>(mean_read, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a>                                                         <span class="at">mean_sci =</span> <span class="fu">mean</span>(mean_sci, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a> pisa_lack_of_teaching_staff <span class="ot">&lt;-</span> pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC017Q01NA))</span>
+<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot</span></span>
+<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a>pisa_lack_of_teaching_staff <span class="sc">%&gt;%</span> <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"subject"</span>, <span class="at">value =</span> <span class="st">"score"</span>, mean_math, mean_read, mean_sci) <span class="sc">%&gt;%</span></span>
+<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SC017Q01NA, <span class="at">y =</span> score, <span class="at">fill =</span> subject)) <span class="sc">+</span></span>
+<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math, Reading and Science Score by Lack of Teaching Staff"</span>, <span class="at">x =</span> <span class="st">"Lack of Teaching Staff"</span>,</span>
+<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Score"</span>) <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> subject) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span>  </span>
+<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a>When there is no lack of teaching staff, the mean scores in all three subjects are interestingly lower than the cases where there is very little to some extent lack of staff. On the other hand, the mean score decreases again when there is serious lack of teaching staff as we would expect.</span>
+<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean Math Score By Professional Development Provided To Teaching Staff:</span></span>
+<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a><span class="co">#  SC184*** mean math score, mean read score and mean sci score "Does your school offer professional development to</span></span>
+<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a><span class="co"># mathematics teachers in any of the following?</span></span>
+<span id="cb22-189"><a href="#cb22-189" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC184Q01JA # 1Yes 2No</span></span>
+<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a><span class="co"># set 1 as yes and 2 as no</span></span>
+<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC184Q01JA =</span> <span class="fu">ifelse</span>(SC184Q01JA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span>
+<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a><span class="co"># drp the NA</span></span>
+<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a>pisa_SC184Q01JA <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC184Q01JA))</span>
+<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a>professional_development_to_mathematics_teachers <span class="ot">&lt;-</span> pisa_SC184Q01JA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC184Q01JA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_math =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
+<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(professional_development_to_mathematics_teachers, <span class="fu">aes</span>(<span class="at">x =</span> SC184Q01JA, <span class="at">y =</span> mean_math)) <span class="sc">+</span></span>
+<span id="cb22-198"><a href="#cb22-198" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Professional Development to Mathematics Teachers"</span>,</span>
+<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Professional Development to Mathematics Teachers"</span>,</span>
+<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC184Q01JA$SC184Q01JA</span></span>
+<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a>The score does not seem to be changing much based on professional development or not.</span>
+<span id="cb22-209"><a href="#cb22-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-210"><a href="#cb22-210" aria-hidden="true" tabindex="-1"></a>Now let's have a closer look  on how the trend changes based on the professional programme attendance of teaching staff in the last three month.</span>
+<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a><span class="co">#  During the last three months, what percentage of teaching</span></span>
+<span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a><span class="co"># staff in your school has attended a programme of</span></span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a><span class="co"># professional development?</span></span>
+<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a><span class="co"># SC025Q01NA A Staff who teach mathematics at your</span></span>
+<span id="cb22-218"><a href="#cb22-218" aria-hidden="true" tabindex="-1"></a><span class="co"># school</span></span>
+<span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC025Q02NA</span></span>
+<span id="cb22-220"><a href="#cb22-220" aria-hidden="true" tabindex="-1"></a><span class="co"># 0-25 26-50 51-75 76-100</span></span>
+<span id="cb22-221"><a href="#cb22-221" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SC025Q02NA =</span> <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">25</span>, <span class="dv">25</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">50</span>, <span class="dv">50</span>, <span class="fu">ifelse</span>(SC025Q02NA <span class="sc">&lt;=</span> <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">100</span>))))</span>
+<span id="cb22-222"><a href="#cb22-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-223"><a href="#cb22-223" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa_SC025Q02NA$SC025Q02NA</span></span>
+<span id="cb22-224"><a href="#cb22-224" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
+<span id="cb22-225"><a href="#cb22-225" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC025Q02NA))</span>
+<span id="cb22-226"><a href="#cb22-226" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC025Q02NA calculate mean math score</span></span>
+<span id="cb22-227"><a href="#cb22-227" aria-hidden="true" tabindex="-1"></a>pisa_SC025Q02NA <span class="ot">&lt;-</span> pisa_SC025Q02NA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC025Q02NA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_maths =</span> <span class="fu">mean</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-228"><a href="#cb22-228" aria-hidden="true" tabindex="-1"></a><span class="co"># line plot normalize the data</span></span>
+<span id="cb22-229"><a href="#cb22-229" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC025Q02NA, <span class="fu">aes</span>(<span class="at">x =</span> SC025Q02NA, <span class="at">y =</span> mean_maths, <span class="at">color =</span> <span class="st">"#E6E6FA"</span>)) <span class="sc">+</span></span>
+<span id="cb22-230"><a href="#cb22-230" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb22-231"><a href="#cb22-231" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
+<span id="cb22-232"><a href="#cb22-232" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Percentage of Teaching Staff Attended a Programme of Professional Development"</span>,</span>
+<span id="cb22-233"><a href="#cb22-233" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-234"><a href="#cb22-234" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-235"><a href="#cb22-235" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb22-236"><a href="#cb22-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-237"><a href="#cb22-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-238"><a href="#cb22-238" aria-hidden="true" tabindex="-1"></a>Even though the gap is not highly significant, we can talk about an upward trend as the teaching staff gets more professional development opportunities.</span>
+<span id="cb22-239"><a href="#cb22-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-240"><a href="#cb22-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean Math Score of OECD Countries by Public or Private School:</span></span>
+<span id="cb22-241"><a href="#cb22-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-244"><a href="#cb22-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a><span class="co"># SC013 Is your school a public or a private school?</span></span>
+<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a><span class="co">#pisa$SC013Q01TA</span></span>
+<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a><span class="co"># group by SC013Q01TA calculate mean math score # 1Public 2Private</span></span>
+<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SC013Q01TA) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(mean_math, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-249"><a href="#cb22-249" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pisa_SC013Q01TA<span class="sc">$</span>SC013Q01TA <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Public"</span>, <span class="st">"Private"</span>)</span>
+<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas</span></span>
+<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
+<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a><span class="co">#group by countries</span></span>
+<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a>pisa_SC013Q01TA <span class="ot">&lt;-</span> pisa_SC013Q01TA <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SC013Q01TA))</span>
+<span id="cb22-254"><a href="#cb22-254" aria-hidden="true" tabindex="-1"></a><span class="co">#  plot  the data</span></span>
+<span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pisa_SC013Q01TA, <span class="fu">aes</span>(mean_math)) <span class="sc">+</span></span>
+<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"#FFE5B4"</span>) <span class="sc">+</span></span>
+<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> SC013Q01TA) <span class="sc">+</span></span>
+<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Math Score by Public or Private School"</span>,</span>
+<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mean Math Score"</span>) <span class="sc">+</span></span>
+<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb22-261"><a href="#cb22-261" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-263"><a href="#cb22-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-264"><a href="#cb22-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-265"><a href="#cb22-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
