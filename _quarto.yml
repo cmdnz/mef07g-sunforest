@@ -5,12 +5,13 @@ project:
 book:
   title: "Sunforest Progress Journal"
   repo-url: https://github.com/pjournal/mef07g-sunforest
-  chapters:
-    - index.qmd
-    - assignment1.qmd
-    - projectpreprocessing.qmd
-    - EDA_test.qmd
-    - EDA.qmd
+chapters:
+  - index.qmd
+  - assignment1.qmd
+  - projectpreprocessing.qmd
+  - EDA_test.qmd
+  - EDA.qmd
+  - ShinyApp_SunForest.Rmd
   page-footer: 
     center: "[MEF BDA 503](https://mef-bda503.github.io)" 
   sharing: [twitter, facebook]
