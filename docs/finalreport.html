@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-12-28">
+<meta name="dcterms.date" content="2023-12-30">
 
-<title>Sunforest Progress Journal - 2&nbsp; PISA 22 Preprocessing Data</title>
+<title>Sunforest Progress Journal - 4&nbsp; PISA 2022 Final Report</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./EDA_test.html" rel="next">
-<link href="./assignment1.html" rel="prev">
+<link href="./EDA_test.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projectpreprocessing.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PISA 22 Preprocessing Data</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./finalreport.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PISA 2022 Final Report</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -134,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projectpreprocessing.html" class="sidebar-item-text sidebar-link active">
+  <a href="./projectpreprocessing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PISA 22 Preprocessing Data</span></span></a>
   </div>
 </li>
@@ -146,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./finalreport.html" class="sidebar-item-text sidebar-link">
+  <a href="./finalreport.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PISA 2022 Final Report</span></span></a>
   </div>
 </li>
@@ -156,14 +155,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#pisa-2022-analysis-a-comprehensive-examination-of-oecd-countries" id="toc-pisa-2022-analysis-a-comprehensive-examination-of-oecd-countries" class="nav-link active" data-scroll-target="#pisa-2022-analysis-a-comprehensive-examination-of-oecd-countries"><span class="header-section-number">4.1</span> PISA 2022 Analysis: A Comprehensive Examination of OECD Countries</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">PISA 22 Preprocessing Data</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PISA 2022 Final Report</span></h1>
 </div>
 
 
@@ -174,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 28, 2023</p>
+      <p class="date">December 30, 2023</p>
     </div>
   </div>
   
@@ -184,16 +189,37 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>2022 student and school questionnaire data files from <a href="https://www.oecd.org/pisa/data/2022database"><em>PISA 2022 database</em></a> webpage are downloaded in .sav format, uploaded to Python in .csv format.</p>
-<p>The variables to be analysed from these two datasets are combined as below:</p>
+<section id="pisa-2022-analysis-a-comprehensive-examination-of-oecd-countries" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="pisa-2022-analysis-a-comprehensive-examination-of-oecd-countries"><span class="header-section-number">4.1</span> PISA 2022 Analysis: A Comprehensive Examination of OECD Countries</h2>
+<p>###Introduction The Program for International Student Assessment (PISA) 2022, focusing on reading, science, and mathematics proficiency, has provided a wealth of insights into the educational landscape of OECD countries. This analysis seeks to delve into the nuances of the data, examining key takeaways, exploring data preparation processes, and uncovering trends related to teaching staff, professional development, and school type in relation to student performance.</p>
+<p>###Key Takeaways</p>
+<p><strong>Top Scorers and Surprising Performances</strong></p>
 <ul>
-<li><p>Given that the questionnaire data includes not only the questions and answers of students, but also the average student scores for math, reading and science subjects based on 10 different cognitive aspects (codes as PV1MATH, PV1READ, etc..ie performance values), the average of these 10 values for 3 different subject are filtered out from student questionnaire.</p></li>
-<li><p>Explanation of question and answer codes in the school questionnaire are inspected from <a href="https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_SCQ_CBA_NoNotes.pdf"><em>Explanation of School Questionnaire Codes</em></a>. Only the columns with the questions by which we will be checking the mean PV results are filtered.</p></li>
-<li><p>PV results filtered from the student questionnaire as well as the filtered question codes from the school questionnaire are merged as one dataframe.</p></li>
-<li><p>The final dataframe is saved as .RData file to further be analysed in R.</p></li>
+<li><strong>Top Scorers:</strong> Notable achievements were observed in Far Eastern countries such as Korea and Japan, along with Eastern European nations like Estonia, Poland, and the Czech Republic.</li>
+<li><strong>Surprising Performances:</strong> Finland, renowned for its education model, exhibited a performance that fell below expectations. Similarly, advanced nations like Germany, France, and the USA demonstrated only average results. Teaching Staff Impact</li>
+<li><strong>Lack of Teaching Staff:</strong> An intriguing observation emerged; schools experiencing either no or excessive shortages in teaching staff witnessed a noticeable drop in mathematics performance. However, schools with moderate shortages showed a comparatively smaller impact.</li>
 </ul>
+<p><strong>Professional Development and School Type</strong> - <strong>Professional Development:</strong> Surprisingly, there was no discernible difference in student performance based on whether schools provided professional development opportunities to mathematics teachers or not.</p>
+<ul>
+<li><strong>School Type:</strong> The duality between public and private schools did not significantly influence student performance.</li>
+</ul>
+<p><strong>Data Preparation</strong> The 2022 student and school questionnaire data files from the PISA 2022 database were meticulously processed. Downloaded in .sav format, they were converted to .csv format for ease of analysis in Python. The resulting datasets were then merged based on relevant variables, creating a comprehensive dataset for further exploration in R.</p>
+<p><strong>Graphs and Inferences</strong></p>
+<p>Graph 1: Average Mathematics Score by OECD Countries</p>
+<p>Graph 1 Intriguingly, mean scores across all three subjects were lower in countries where there was no lack of teaching staff compared to schools with some shortage. However, as anticipated, a severe shortage of teaching staff led to a decline in mean scores.</p>
+<p>Graph 2: Mean Scores by Lack of Teaching Staff</p>
+<p>Graph 2 Contrary to expectations, the availability or lack of professional development opportunities did not exhibit a significant impact on student scores, as evidenced by Graph 3. Graph 3: Professional Development Impact</p>
+<p>Graph 3</p>
+<p>The implications of Graph 4 are profound: the overall educational experience and environment play a crucial role in student performance, transcending the influence of professional development opportunities. School type, whether public or private, did not emerge as a significant factor in determining student achievement. The conclusion drawn is that the quality of teaching staff plays a more substantial role in student success.</p>
+<p>Graph 4</p>
+<p><strong>OECD Findings</strong> - Mathematics Proficiency: Singapore emerged as the highest scorer, surpassing all other countries with a score of 575 points. Six other nations, including Hong Kong (China), Japan, Korea, Macao (China), and Chinese Taipei, also outperformed the OECD average. - High-Performing Students: Approximately 69% of students in OECD countries demonstrated proficiency in mathematics. Notably, 16 out of 81 countries had more than 10% of students attaining Level 5 or 6 proficiency.</p>
+<p><strong>Striking Results</strong> - Teaching Staff Shortage: The shortage of mathematics teachers emerged as a critical factor significantly affecting student performance. Schools with no or excessive shortages witnessed a substantial decrease in mathematics achievement, emphasizing the need for a balanced teacher supply. - Professional Development: Surprisingly, no significant relationship was found between professional development opportunities for mathematics teachers and student achievement. This underscores the necessity for educational institutions to review and enhance their professional development programs. - School Type: The distinction between public and private schools did not show a significant effect on student achievement. This highlights the paramount importance of focusing on other factors, particularly the quality of teaching staff.</p>
+<p><strong>Conclusion</strong> In conclusion, this in-depth analysis of PISA 2022 data unveils the intricate dynamics influencing student success.</p>
+<p>Addressing shortages in teaching staff, refining professional development programs, and prioritizing overall educational quality are pivotal strategies for institutions aspiring to elevate student achievements. The findings presented here provide valuable insights for educators, policymakers, and institutions seeking to enhance the educational experience and outcomes for students in the ever-evolving global landscape.</p>
+<p>For a detailed exploration, including graphs and additional insights, please refer to the complete analysis.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -431,14 +457,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./assignment1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sunforest: Assignment 1</span></span>
+      <a href="./EDA_test.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PISA 2022 Exploratory Data Analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./EDA_test.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">PISA 2022 Exploratory Data Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

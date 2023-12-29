@@ -1,20 +1,8 @@
 ---
 title: "PISA 2022 Exploratory Data Analysis"
-date: "2023-12-30"
+date: "2023-12-28"
 editor: visual
-code-fold: true
-code-tools: true
 ---
-
-## Key Takeaways
-
-- **Top Scorers of OECD Countries:** Two Far Eastern countries, Korea and Japan, and three Eastern Europe countries, Estonia, Poland and Czech Republic, are outstanding in terms of mean scores of all three subject. 
-- **Not The Best As Expected in OECD Countries:** Finland, the country of which the education model is taken as a role model, has a mediocre performance. The most advanced countries like Germany, France and USA have again a mediocre performance. 
-- **Lack of teaching staff:** If schools have 'no' or 'a lot of staff missing teaching mathematics', then their students' performance in mathematics drops. If schools have a moderate number of missing (‘very little’ and ‘to some extent’) students' performance in mathematics is not affected much.
-- **Professional Development:** Does your school offer professional development to mathematics teachers in any of the following? It seems there is no difference in students’ mathematical performance whether their school provides or does not professional development to the teachers.
-- **Is your school a public or a private school? Answer to this question:** In general, the school type does not matter much in students’ performance in PISA 2022.
-- **Specifically in Turkey, we checked whether school type mattered in terms of frequency of high achievers:** Interestingly, the percentage of high achievers as well as the lowest scorers coming from private schools is higher than public schools.
-
 
 ## Package Installation and Data Summary:
 
@@ -60,6 +48,7 @@ pisa <- pisa %>% select(-X)
 ## Mean Of Math, Reading and Science Scores By OECD Countries:
 
 Sums and means of PV scores for each subject and each row are summarised as additional columns:
+
 ```{r}
 # Step 3:  EDA
 
@@ -90,84 +79,15 @@ pisa_mean <- pisa %>% filter(OECD_x == 1) %>% group_by(CNT) %>% summarise(mean_m
                                                   mean_read = mean(mean_read, na.rm = TRUE),
                                                   mean_sci = mean(mean_sci, na.rm = TRUE))
 
-#calculate the mean math score of OECD countries:
-pisa_mean_mean <- pisa_mean %>% summarise(mean_mean = mean(mean_math))
-print(pisa_mean_mean)
-
 ```
-
-
-Below is mean math score by OECD country:
-
-```{r}
-# sort the data by mean_math
-pisa_mean <- pisa_mean %>% arrange(desc(mean_math))
-# visualize the data by mean_math
-ggplot(pisa_mean, aes(x = reorder(CNT, mean_math), y = mean_math)) +
-  geom_bar(stat = "identity", fill = "darkblue") +
-  #highlight the average value
-  geom_hline(yintercept = 425, linetype = "dashed", color = "red") +
-  coord_flip() + 
-  labs(title = "Mean Math Score by OECD Country",
-       x = "Country",
-       y = "Mean Math Score") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-
-..and below is the representation of mean science and reading scores by OECD countries:
-
-```{r}
-# sort the data by sci score
-pisa_mean <- pisa_mean %>% arrange(desc(mean_sci))
-# visualize the data by mean_sci
-
-#calculate the mean sci score of OECD countries:
-pisa_mean_mean <- pisa_mean %>% summarise(mean_mean = mean(mean_sci))
-print(pisa_mean_mean)
-
-ggplot(pisa_mean, aes(x = reorder(CNT, mean_sci), y = mean_sci)) +
-  geom_bar(stat = "identity", fill = "steelblue") +  #highlight the average value
-  geom_hline(yintercept = 484, linetype = "dashed", color = "red") +
-  coord_flip() +
-  labs(title = "Mean Science Score by OECD Country",
-       x = "Country",
-       y = "Mean Science Score") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5))
-
-# sort the data by read score
-pisa_mean <- pisa_mean %>% arrange(desc(mean_read))
-#calculate the mean read score of OECD countries:
-pisa_mean_mean <- pisa_mean %>% summarise(mean_mean = mean(mean_read))
-print(pisa_mean_mean)
-# visualize the data by mean_read
-ggplot(pisa_mean, aes(x = reorder(CNT, mean_read), y = mean_read)) +
-  geom_bar(stat = "identity", fill = "lightblue") +
-  geom_hline(yintercept = 475, linetype = "dashed", color = "red") +
-  coord_flip() +
-  labs(title = "Mean Reading Score by OECD Country",
-       x = "Country",
-       y = "Mean Reading Score") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5))
-
-
-```
-
-- Korea, Japan, Estonia and Czech Republic are part of top 5 in all of the subjects.
-- While Finland education method is promoted as the best, the scores of this country is mediocre among the OECD countries.
-- Turkey is among the last 5 out of OECD countries in all three subjects, together with Greece, Colombia and Mexico.
 
 ## Mean Of Math, Reading and Science Scores by Lack Of Teaching Stuff:
-
 
 ```{r}
 # SC017Q01NA Instruction hindered by: A lack of teaching staff #Not at all # Very little # To some extent # A lot
 #pisa$SC017Q01NA
 # group by SC017Q01NA calculate mean math score , mean read score and mean sci score
-pisa_lack_of_teaching_staff <- pisa %>% group_by(SC017Q01NA) %>% summarise(mean_math = mean(mean_math, na.rm = TRUE),
+pisa_lack_of_teaching_staff <- pisa %>% filter(OECD_x ==1) %>% group_by(SC017Q01NA) %>% summarise(mean_math = mean(mean_math, na.rm = TRUE),
                                                          mean_read = mean(mean_read, na.rm = TRUE),
                                                          mean_sci = mean(mean_sci, na.rm = TRUE))
 
@@ -182,7 +102,8 @@ pisa_lack_of_teaching_staff %>% gather(key = "subject", value = "score", mean_ma
   theme(legend.position = "none")
 
 ```
-When there is no lack of teaching staff (1), the mean scores in all three subjects are interestingly lower than the cases where there is very little (2) to some extent (3) lack of staff. On the other hand, the mean score decreases again when there is serious lack of teaching staff (4) as we would expect.
+
+When there is no lack of teaching staff, the mean scores in all three subjects are interestingly lower than the cases where there is very little to some extent lack of staff. On the other hand, the mean score decreases again when there is serious lack of teaching staff as we would expect.
 
 ## Mean Math Score By Professional Development Provided To Teaching Staff:
 
@@ -192,13 +113,13 @@ When there is no lack of teaching staff (1), the mean scores in all three subjec
 #pisa$SC184Q01JA # 1Yes 2No
 # set 1 as yes and 2 as no
 
-pisa_SC184Q01JA <- pisa %>% mutate(SC184Q01JA = ifelse(SC184Q01JA == 1, "Yes", "No"))
+pisa_SC184Q01JA <- pisa %>% mutate(SC184Q01JA = ifelse(SC184Q01JA == 1, "Yes", "No")) %>% filter(OECD_x == 1)
 # drp the NA 
 pisa_SC184Q01JA <- pisa_SC184Q01JA %>% filter(!is.na(SC184Q01JA))
 professional_development_to_mathematics_teachers <- pisa_SC184Q01JA %>% group_by(SC184Q01JA) %>% summarise(mean_math = mean(mean_math, na.rm = TRUE))
 # line plot normalize the data
 ggplot(professional_development_to_mathematics_teachers, aes(x = SC184Q01JA, y = mean_math)) +
-    geom_bar(stat = "identity", fill = "#FFF0F5") +
+    geom_bar(stat = "identity", fill = "steelblue") +
     labs(title = "Mean Math Score by Professional Development to Mathematics Teachers",
          x = "Professional Development to Mathematics Teachers",
          y = "Mean Math Score") +
@@ -208,9 +129,11 @@ ggplot(professional_development_to_mathematics_teachers, aes(x = SC184Q01JA, y =
 
 
 ```
-The score does not seem to be changing much based on whether the professional development is provided or not.
 
-..Now let's have a closer look  on how the trend changes based on the professional programme attendance of teaching staff in the last three months:
+The score does not seem to be changing much based on professional development or not.
+
+Now let's have a closer look on how the trend changes based on the professional programme attendance of teaching staff in the last three month.
+
 ```{r}
 #  During the last three months, what percentage of teaching
 # staff in your school has attended a programme of
@@ -219,7 +142,7 @@ The score does not seem to be changing much based on whether the professional de
 # school
 #pisa$SC025Q02NA
 # 0-25 26-50 51-75 76-100
-pisa_SC025Q02NA <- pisa %>% mutate(SC025Q02NA = ifelse(SC025Q02NA <= 25, 25, ifelse(SC025Q02NA <= 50, 50, ifelse(SC025Q02NA <= 75, 75, 100))))
+pisa_SC025Q02NA <- pisa %>% filter(OECD_x ==1) %>% mutate(SC025Q02NA = ifelse(SC025Q02NA <= 25, 25, ifelse(SC025Q02NA <= 50, 50, ifelse(SC025Q02NA <= 75, 75, 100))))
 #pisa_SC025Q02NA$SC025Q02NA
 # drop nas
 pisa_SC025Q02NA <- pisa_SC025Q02NA %>% filter(!is.na(SC025Q02NA))
@@ -235,22 +158,23 @@ ggplot(pisa_SC025Q02NA, aes(x = SC025Q02NA, y = mean_maths, color = "#E6E6FA")) 
     theme(plot.title = element_text(hjust = 0.5)) + theme(legend.position = "none")
 
 ```
+
 Even though the gap is not highly significant, we can talk about an upward trend as the teaching staff gets more professional development opportunities.
 
-## Mean Math Score by Public or Private School:
+## Mean Math Score of OECD Countries by Public or Private School:
 
 ```{r}
 
 # SC013 Is your school a public or a private school?
 #pisa$SC013Q01TA
 # group by SC013Q01TA calculate mean math score # 1Public 2Private
-pisa_SC013Q01TA <- pisa %>% group_by(SC013Q01TA) %>% summarise(mean_maths = mean(mean_math, na.rm = TRUE)) 
+pisa_SC013Q01TA <- pisa %>% filter(OECD_x ==1) %>% group_by(SC013Q01TA) %>% summarise(mean_maths = mean(mean_math, na.rm = TRUE)) 
 pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
 # drop nas
 pisa_SC013Q01TA <- pisa_SC013Q01TA %>% filter(!is.na(SC013Q01TA))
 #  plot  the data
 ggplot(pisa_SC013Q01TA, aes(x = SC013Q01TA, y = mean_maths)) +
-    geom_bar(stat = "identity", fill = "#E8F5E9") +
+    geom_bar(stat = "identity", fill = "steelblue") +
     labs(title = "Mean Math Score by Public or Private School",
          x = "Public or Private School",
          y = "Mean Math Score") +
@@ -259,11 +183,69 @@ ggplot(pisa_SC013Q01TA, aes(x = SC013Q01TA, y = mean_maths)) +
 
 
 ```
-Now we would like to focus on the distribution of scores based on the school type in Turkey:
-
 
 ```{r}
 
+# SC013 Is your school a public or a private school?
+#pisa$SC013Q01TA
+# group by SC013Q01TA calculate mean math score # 1Public 2Private
+pisa_SC013Q01TA <- pisa %>% group_by(SC013Q01TA) %>% summarise(mean_math, na.rm = TRUE) 
+pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
+# drop nas
+pisa_SC013Q01TA <- pisa_SC013Q01TA %>% filter(!is.na(SC013Q01TA))
+#group by countries
+pisa_SC013Q01TA <- pisa_SC013Q01TA %>% filter(!is.na(SC013Q01TA))
+pisa_SC013Q01TA <- pisa_SC013Q01TA 
+#  plot  the data
+
+ggplot(pisa_SC013Q01TA, aes(x = mean_math)) +
+geom_histogram(aes(y = after_stat(count / sum(count))), binwidth = 100) +
+  stat_bin(
+    binwidth = 100,
+    aes(y = after_stat(count / sum(count)), 
+        label = scales::percent(after_stat(count / sum(count))))) +
+  scale_y_continuous(labels = scales::percent) +    facet_grid(. ~ SC013Q01TA) + labs(title = "Mean Math Score by Public or Private School",
+         x = "Mean Math Score") 
+
+
+```
+
+```{r}
+
+pisa_SC013Q01TA <- pisa %>% group_by(SC013Q01TA) %>% summarise(mean_math, na.rm = TRUE) 
+pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
+# drop nas
+pisa_SC013Q01TA <- pisa_SC013Q01TA %>% filter(!is.na(SC013Q01TA))
+
+#  plot  the data
+ggplot(data = pisa_SC013Q01TA, aes(mean_math)) + 
+  geom_histogram(bins = 100,
+                 aes(y = stat(100*density))) +
+  facet_wrap(.~SC013Q01TA) +
+  scale_y_continuous(labels = percent_format()) +
+  theme_bw()
+```
+
+```{r}
+
+pisa_SC013Q01TA <- pisa %>% filter(CNT =="TUR") %>% group_by(SC013Q01TA) %>% summarise(mean_math, na.rm = TRUE) 
+pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
+# drop nas
+pisa_SC013Q01TA <- pisa_SC013Q01TA %>% filter(!is.na(SC013Q01TA))
+ 
+#  plot  the data
+ggplot(data = pisa_SC013Q01TA, aes(mean_math)) + 
+  geom_histogram(bins = 10,
+                 aes(y = stat(10*density))) +
+  facet_wrap(.~SC013Q01TA) +
+  scale_y_continuous(labels = percent_format()) +
+  theme_bw()
+```
+
+```{r}
+
+# SC013 Is your school a public or a private school?
+#pisa$SC013Q01TA
 # group by SC013Q01TA filter TR calculate mean math score # 1Public 2Private
 pisa_SC013Q01TA <- pisa %>% filter(CNT=="TUR") %>% group_by(SC013Q01TA) %>% summarise(mean_math, na.rm = TRUE) 
 pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
@@ -278,19 +260,21 @@ geom_histogram(aes(y = after_stat(count / sum(count))), binwidth = 100) +
     binwidth = 100, fill="#ECD5C4",
     aes(y = after_stat(count / sum(count)), 
         label = scales::percent(after_stat(count / sum(count))))) +
-  scale_y_continuous(labels = scales::percent)  + labs(title = "Mean Math Score in Turkey by Public School",
-         x = "Mean Math Score", y = "Percentage In Public Scool") 
+  scale_y_continuous(labels = scales::percent)  + labs(title = "Mean Math Score by Public School",
+         x = "Mean Math Score") 
 
 
 ```
 
-
 ```{r}
 
-# group by SC013Q01TA Filter TR & group by SC013Q01TA calculate mean math score # 1Public 2Private
+
+# SC013 Is your school a public or a private school?
+#pisa$SC013Q01TA
+# group by SC013Q01TA calculate mean math score # 1Public 2Private
 pisa_SC013Q01TA <- pisa %>% filter(CNT=="TUR") %>% group_by(SC013Q01TA) %>% summarise(mean_math, na.rm = TRUE) 
 pisa_SC013Q01TA$SC013Q01TA <- ifelse(pisa_SC013Q01TA$SC013Q01TA == 1, "Public", "Private")
-# Filter private school
+# drop nas
 pisa_SC013Q01TA_private <- pisa_SC013Q01TA %>% filter(SC013Q01TA == "Private")
 
 #  plot  the data
@@ -301,10 +285,10 @@ geom_histogram(aes(y = after_stat(count / sum(count))), binwidth = 100) +
     binwidth = 100, fill = "#D8BFD8",
     aes(y = after_stat(count / sum(count)), 
         label = scales::percent(after_stat(count / sum(count))))) +
-  scale_y_continuous(labels = scales::percent)  + labs(title = "Mean Math Score in Turkey by Private School",
-         x = "Mean Math Score", y = "Percentage in Private School") 
+  scale_y_continuous(labels = scales::percent)  + labs(title = "Mean Math Score by Private School",
+         x = "Mean Math Score", y = "Percentage") 
 
 
 ```
 
-While there is a steeper graph in public schools with more densed scores in medium values, the propensity of the lowest scorers as well as the highest achievers is higher in private schools.
+\`\`\`

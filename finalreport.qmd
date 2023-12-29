@@ -1,0 +1,65 @@
+---
+title: "PISA 2022 Final Report"
+date: "2023-12-30"
+editor: visual
+---
+
+
+## PISA 2022 Analysis: A Comprehensive Examination of OECD Countries
+
+###Introduction
+The Program for International Student Assessment (PISA) 2022, focusing on reading, science, and mathematics proficiency, has provided a wealth of insights into the educational landscape of OECD countries. This analysis seeks to delve into the nuances of the data, examining key takeaways, exploring data preparation processes, and uncovering trends related to teaching staff, professional development, and school type in relation to student performance.
+
+###Key Takeaways
+
+**Top Scorers and Surprising Performances**
+
+- **Top Scorers:** Notable achievements were observed in Far Eastern countries such as Korea and Japan, along with Eastern European nations like Estonia, Poland, and the Czech Republic.
+- **Surprising Performances:** Finland, renowned for its education model, exhibited a performance that fell below expectations. Similarly, advanced nations like Germany, France, and the USA demonstrated only average results.
+Teaching Staff Impact
+- **Lack of Teaching Staff:** An intriguing observation emerged; schools experiencing either no or excessive shortages in teaching staff witnessed a noticeable drop in mathematics performance. However, schools with moderate shortages showed a comparatively smaller impact.
+
+**Professional Development and School Type**
+- **Professional Development:** Surprisingly, there was no discernible difference in student performance based on whether schools provided professional development opportunities to mathematics teachers or not.
+
+- **School Type:** The duality between public and private schools did not significantly influence student performance.
+
+**Data Preparation**
+The 2022 student and school questionnaire data files from the PISA 2022 database were meticulously processed. Downloaded in .sav format, they were converted to .csv format for ease of analysis in Python. The resulting datasets were then merged based on relevant variables, creating a comprehensive dataset for further exploration in R.
+
+**Graphs and Inferences**
+
+Graph 1: Average Mathematics Score by OECD Countries
+
+Graph 1
+Intriguingly, mean scores across all three subjects were lower in countries where there was no lack of teaching staff compared to schools with some shortage. However, as anticipated, a severe shortage of teaching staff led to a decline in mean scores.
+
+Graph 2: Mean Scores by Lack of Teaching Staff
+
+Graph 2
+Contrary to expectations, the availability or lack of professional development opportunities did not exhibit a significant impact on student scores, as evidenced by Graph 3.
+Graph 3: Professional Development Impact
+
+Graph 3
+
+The implications of Graph 4 are profound: the overall educational experience and environment play a crucial role in student performance, transcending the influence of professional development opportunities.
+School type, whether public or private, did not emerge as a significant factor in determining student achievement. The conclusion drawn is that the quality of teaching staff plays a more substantial role in student success.
+
+Graph 4
+
+
+**OECD Findings**
+- Mathematics Proficiency: Singapore emerged as the highest scorer, surpassing all other countries with a score of 575 points. Six other nations, including Hong Kong (China), Japan, Korea, Macao (China), and Chinese Taipei, also outperformed the OECD average.
+- High-Performing Students: Approximately 69% of students in OECD countries demonstrated proficiency in mathematics. Notably, 16 out of 81 countries had more than 10% of students attaining Level 5 or 6 proficiency.
+
+**Striking Results**
+- Teaching Staff Shortage: The shortage of mathematics teachers emerged as a critical factor significantly affecting student performance. Schools with no or excessive shortages witnessed a substantial decrease in mathematics achievement, emphasizing the need for a balanced teacher supply.
+- Professional Development: Surprisingly, no significant relationship was found between professional development opportunities for mathematics teachers and student achievement. This underscores the necessity for educational institutions to review and enhance their professional development programs.
+- School Type: The distinction between public and private schools did not show a significant effect on student achievement. This highlights the paramount importance of focusing on other factors, particularly the quality of teaching staff.
+
+**Conclusion**
+In conclusion, this in-depth analysis of PISA 2022 data unveils the intricate dynamics influencing student success.
+
+Addressing shortages in teaching staff, refining professional development programs, and prioritizing overall educational quality are pivotal strategies for institutions aspiring to elevate student achievements. The findings presented here provide valuable insights for educators, policymakers, and institutions seeking to enhance the educational experience and outcomes for students in the ever-evolving global landscape.
+
+For a detailed exploration, including graphs and additional insights, please refer to the complete analysis.
