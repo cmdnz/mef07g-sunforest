@@ -4,7 +4,6 @@ output: quarto::quarto_shiny
 runtime:
   shiny: true
 ---
-
 library(shiny)
 library(dplyr)
 library(ggplot2)
