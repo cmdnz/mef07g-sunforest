@@ -1,4 +1,9 @@
-# Install required packages if not installed
+---
+title: "SunForest Shiny App"
+output: quarto::quarto_shiny
+runtime:
+  shiny: true
+---
 # install.packages(c("shiny", "dplyr", "ggplot2"))
 
 # Load libraries
