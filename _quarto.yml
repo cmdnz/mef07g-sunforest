@@ -18,4 +18,5 @@ book:
 format:
   html:
     theme: cosmo
-
+runtime:
+  shiny: true
