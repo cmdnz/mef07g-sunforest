@@ -20,13 +20,10 @@ ui <- fluidPage(
                   choices = c("Mean Math Score by Country", 
                               "Mean Science Score by Country", 
                               "Mean Reading Score by Country",
-                              "Mean Scores by Lack of Teaching Staff",
-                              "Mean Math Score by Professional Development",
-                              "Mean Math Score by Percentage of Teaching Staff Attended PD",
-                              "Mean Math Score by School Type")),
+                  )),
       checkboxInput("filterOECD", "Filter by OECD Countries", value = TRUE),
       conditionalPanel(
-        condition = "input.plotType == 'Mean Math Score by Percentage of Teaching Staff Attended PD'",
+        condition = "input.plotType == 'Mean Math Score by Country'",
         sliderInput("percentageSlider", "Select Percentage Range", min = 0, max = 100, value = c(0, 100))
       )
     ),
@@ -67,6 +64,7 @@ server <- function(input, output) {
         theme_bw() +
         theme(plot.title = element_text(hjust = 0.5))
     }
-
+  })
+}
 
 shinyApp(ui = ui, server = server)
