@@ -181,6 +181,12 @@ ggplot(pisa_SC013Q01TA, aes(x = SC013Q01TA, y = mean_maths)) +
 
 - School Type: The distinction between public and private schools did not show a significant effect on student achievement. This highlights the paramount importance of focusing on other factors, particularly the quality of teaching staff.
 
+### \| Math Scores Shiny Dashboard
+
+Here is the link to a Shiny dashboard where you can select the math results of three different countries based on difficulty levels (level 1a, level 3, level 6) and based on school types ("p" private, "g" public):
+
+[Pisa Math Scores](https://foxy.shinyapps.io/try_shine/)
+
 ### \| Conclusion
 In conclusion, this in-depth analysis of PISA 2022 data unveils the intricate dynamics influencing student success.
 
