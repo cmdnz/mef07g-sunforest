@@ -2,7 +2,7 @@
 
 <!-- DO NOT TOUCH THIS PART EXCEPT FILLING YOUR OR YOUR GROUP's NAME -->
 
-This progress journal covers Sunforest's work during their term at [BDA 503 Fall 2023](https://mef-bda503.github.io/fall23/).
+This progress journal covers Sun Forest's work during their term at [BDA 503 Fall 2023](https://mef-bda503.github.io/fall23/).
 
 ### Group Members {-}
 
@@ -15,6 +15,9 @@ This progress journal covers Sunforest's work during their term at [BDA 503 Fall
 # Group Project Details
 
 Analysis of recently released PISA 2022 scores:
+
 - based on mean scores of math, reading and science subjects
+
 - by selected school questionnaire answers
+
 - by OECD countries

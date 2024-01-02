@@ -1,5 +1,5 @@
 ---
-title: "Sunforest: Assignment 1"
+title: "Sun Forest: Assignment 1"
 date: "2022-11-21"
 editor: visual
 code-fold: true
