@@ -1,0 +1,17 @@
+---
+title: "PISA'22 Preprocessing Data "
+date: "2023-12-28"
+editor: visual
+---
+
+2022 student and school questionnaire data files from [*PISA 2022 database*](https://www.oecd.org/pisa/data/2022database) webpage are downloaded in .sav format, uploaded to Python in .csv format.
+
+The variables to be analysed from these two datasets are combined as below:
+
+-   Given that the questionnaire data includes not only the questions and answers of students, but also the average student scores for math, reading and science subjects based on 10 different cognitive aspects (codes as PV1MATH, PV1READ, etc..ie performance values), the average of these 10 values for 3 different subject are filtered out from student questionnaire.
+
+-   Explanation of question and answer codes in the school questionnaire are inspected from [*Explanation of School Questionnaire Codes*](https://www.oecd.org/pisa/data/2022database/CY8_202111_QST_MS_SCQ_CBA_NoNotes.pdf). Only the columns with the questions by which we will be checking the mean PV results are filtered.
+
+-   PV results filtered from the student questionnaire as well as the filtered question codes from the school questionnaire are merged as one dataframe.
+
+-   The final dataframe is saved as .RData file to further be analysed in R.

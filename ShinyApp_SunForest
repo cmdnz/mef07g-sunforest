@@ -1,0 +1,69 @@
+---
+title: "SunForest Shiny App"
+output: quarto::quarto_shiny
+runtime:
+  shiny: true
+---
+library(shiny)
+library(dplyr)
+library(ggplot2)
+
+load("pisa.RData")
+
+ui <- fluidPage(
+  titlePanel("PISA 2022 Exploratory Data Analysis"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("plotType", "Select Plot Type", 
+                  choices = c("Mean Math Score by Country", 
+                              "Mean Science Score by Country", 
+                              "Mean Reading Score by Country",
+                  )),
+      checkboxInput("filterOECD", "Filter by OECD Countries", value = TRUE),
+      conditionalPanel(
+        condition = "input.plotType == 'Mean Math Score by Country'",
+        sliderInput("percentageSlider", "Select Percentage Range", min = 0, max = 100, value = c(0, 100))
+      )
+    ),
+    
+    mainPanel(
+      plotOutput("plot")
+    )
+  )
+)
+
+server <- function(input, output) {
+  
+  filteredData <- reactive({
+    if (input$filterOECD) {
+      pisa_filtered <- pisa[pisa$OECD_x == 1, ]
+    } else {
+      pisa_filtered <- pisa
+    }
+    pisa_filtered
+  })
+  
+
+  output$plot <- renderPlot({
+    pisa_data <- filteredData()
+    
+
+    if (input$plotType == "Mean Math Score by Country") {
+      plot_data <- pisa_data %>%
+        group_by(CNT) %>%
+        summarise(mean_math = mean(mean_math, na.rm = TRUE))
+      
+      ggplot(plot_data, aes(x = reorder(CNT, mean_math), y = mean_math)) +
+        geom_bar(stat = "identity", fill = "darkblue") +
+        coord_flip() +
+        labs(title = "Mean Math Score by Country",
+             x = "Country",
+             y = "Mean Math Score") +
+        theme_bw() +
+        theme(plot.title = element_text(hjust = 0.5))
+    }
+  })
+}
+
+shinyApp(ui = ui, server = server)

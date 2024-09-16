@@ -3,11 +3,15 @@ project:
   output-dir: docs
 
 book:
-  title: "Sunforest Progress Journal"
+  title: "Sun Forest Progress Journal"
   repo-url: https://github.com/pjournal/mef07g-sunforest
+
   chapters:
     - index.qmd
     - assignment1.qmd
+    - projectpreprocessing.qmd
+    - EDA_test.qmd
+    - finalreport.qmd
   page-footer: 
     center: "[MEF BDA 503](https://mef-bda503.github.io)" 
   sharing: [twitter, facebook]
